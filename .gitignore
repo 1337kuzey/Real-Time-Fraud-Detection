@@ -40,10 +40,6 @@ docker-compose.override.yml
 logs/
 *.out
 
-# Model files
-src/model/saved/*.pkl
-src/model/saved/*.joblib
-
 # Prometheus & Grafana volumes (if persisted locally)
 prometheus-data/
 grafana-storage/
@@ -59,5 +55,3 @@ build/
 
 # Data files
 *.csv
-data/
-!data/README.md
