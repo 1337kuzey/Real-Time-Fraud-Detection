@@ -19,7 +19,7 @@ This project simulates real-time credit card transactions and detects fraudulent
 ## Architecture Overview
 
 ```mermaid
-%%{init: {'theme': 'forest', 'themeVariables': { 'fontSize': '30px', 'fontFamily': 'sans-serif'}}}%%
+%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '30px', 'fontFamily': 'sans-serif'}}}%%
 flowchart LR
   Simulator["✉️ <br>data_simulator.py<br>Simulated Transactions"]
   Kafka["📥 <br>Kafka Broker"]
