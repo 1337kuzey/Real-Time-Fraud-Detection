@@ -55,6 +55,12 @@ flowchart LR
 ### 1. Clone the repository  
 `git clone https://github.com/your-username/real-time-fraud-detection.git`  
 `cd real-time-fraud-detection`  
+
+### 2. Install dependencies  
+`python -m venv .venv`  
+`source .venv/bin/activate` or `.venv\Scripts\activate on Windows`  
+`pip install -r requirements.txt`  
+
 ### 2. Start core services  
 `docker compose up -d`  
 This spins up:  
