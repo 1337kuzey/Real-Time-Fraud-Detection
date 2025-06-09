@@ -71,6 +71,7 @@ This spins up:
 ### 5. Open Grafana and Prometheus dashboards
 
 - Grafana: [http://localhost:3000](http://localhost:3000)
+  - log in (admin / admin), click "Dashboards" → "New" → "Import", then upload grafana/dashboards/Fraud-Metrics.json file. 
 - Prometheus: [http://localhost:9090](http://localhost:9090)
 - FastAPI API: [http://localhost:8000](http://localhost:8000)
 - Metrics endpoint: [http://localhost:8000/metrics](http://localhost:8000/metrics)
