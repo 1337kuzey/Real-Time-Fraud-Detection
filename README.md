@@ -1,4 +1,4 @@
-# 🔍 Real-Time Fraud Detection System
+# Real-Time Fraud Detection System ⚙️
 
 A production-style real-time fraud detection pipeline using **Kafka**, **FastAPI**, **XGBoost/CatBoost/LightGBM**, **Prometheus**, and **Grafana**.
 
@@ -6,7 +6,7 @@ This project simulates real-time credit card transactions and detects fraudulent
 
 ---
 
-## 🧠 Key Features
+## Key Features
 
 - **Real-Time Streaming** via Kafka (with Zookeeper)
 - **Machine Learning Inference** with FastAPI + pre-trained models
@@ -16,16 +16,16 @@ This project simulates real-time credit card transactions and detects fraudulent
 
 ---
 
-## 🚀 Architecture Overview
+## Architecture Overview
 
 ```mermaid
 flowchart LR
-  Simulator["🌀 data_simulator.py<br>Simulated Transactions"]
-  Kafka["🧱 Kafka Broker"]
-  Consumer["📬 consumer.py<br>Kafka Consumer"]
-  FastAPI["⚡ inference.py<br>(/predict API)<br>ML Inference"]
-  Prometheus["📈 Prometheus<br>/metrics scraping"]
-  Grafana["📊 Grafana Dashboards"]
+  Simulator["data_simulator.py<br>Simulated Transactions"]
+  Kafka["Kafka Broker"]
+  Consumer["consumer.py<br>Kafka Consumer"]
+  FastAPI["inference.py<br>(/predict API)<br>ML Inference"]
+  Prometheus["Prometheus<br>/metrics scraping"]
+  Grafana["Grafana Dashboards"]
 
   Simulator --> Kafka
   Kafka --> Consumer
@@ -34,7 +34,7 @@ flowchart LR
   Prometheus --> Grafana
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Domain             | Technology / Tool                                                                 |
 |--------------------|------------------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ flowchart LR
 <img width="1576" alt="Screenshot 2025-06-09 at 1 05 01 AM" src="https://github.com/user-attachments/assets/d075418b-ac84-4b5a-a5c8-04ad95dd1e50" />
 <img width="800" alt="Screenshot 2025-06-09 at 7 16 30 AM" src="https://github.com/user-attachments/assets/354dc76c-3227-4109-a11a-fbcbd9de5d0f" />
 
-## 🧪 Running the Project
+## Running the Project
 
 ### 1. Clone the repository  
 `git clone https://github.com/your-username/real-time-fraud-detection.git`  
@@ -90,10 +90,10 @@ This spins up:
 
 Note: To use another model (e.g. LightGBM, CatBoost, XGBoost), set the MODEL_NAME environment variable in docker-compose.yml
 
-## 🧠 Future Enhancements  
+## Future Enhancements  
 - Add Kafka message persistence
 - CI/CD with GitHub Actions
 - REST API auth layer (JWT / API Key)
 - Model versioning support
-## 📄 License
+## License
 MIT — free to use and modify.
