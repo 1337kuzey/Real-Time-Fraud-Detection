@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.joblib
+*.ipynb_checkpoints
+*.log
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# CatBoost logs
+catboost_info/
+
+# Environment files
+.env
+.env.*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Docker
+*.tar
+*.pid
+*.sock
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+*.out
+
+# Model files
+src/model/saved/*.pkl
+src/model/saved/*.joblib
+
+# Prometheus & Grafana volumes (if persisted locally)
+prometheus-data/
+grafana-storage/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Data files
+*.csv
+data/
+!data/README.md
