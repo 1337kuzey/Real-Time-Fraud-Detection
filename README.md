@@ -49,6 +49,7 @@ flowchart LR
 | **Data Source**    | [IEEE-CIS Fraud Detection Dataset](https://www.kaggle.com/competitions/ieee-fraud-detection) |
 
 <img width="1576" alt="Screenshot 2025-06-09 at 1 05 01 AM" src="https://github.com/user-attachments/assets/d075418b-ac84-4b5a-a5c8-04ad95dd1e50" />
+<img width="800" alt="Screenshot 2025-06-09 at 1 10 13 AM" src="https://github.com/user-attachments/assets/d072c364-785d-43ff-bd40-3904c573c830" />
 
 ## 🧪 Running the Project
 
