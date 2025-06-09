@@ -9,18 +9,18 @@ This folder contains the data used for the Real-Time Fraud Detection System buil
 To run this project, you'll need to manually download the IEEE-CIS Fraud Detection dataset from [Kaggle](https://www.kaggle.com/c/ieee-fraud-detection/data).  
 
 Once downloaded, place the raw files in the following directory structure:  
-
-data/
-├── raw/
-│ ├── train_transaction.csv
-│ ├── train_identity.csv
-│ ├── test_transaction.csv
-│ └── test_identity.csv
-├── merged/
-│ ├── train_transaction_identity_merged.csv ← will be created by script
-│ └── test_transaction_identity_merged.csv ← will be created by script
-└── README.md
-
+```
+data/  
+├── raw/  
+│ ├── train_transaction.csv  
+│ ├── train_identity.csv  
+│ ├── test_transaction.csv  
+│ └── test_identity.csv  
+├── merged/  
+│ ├── train_transaction_identity_merged.csv ← will be created by script  
+│ └── test_transaction_identity_merged.csv ← will be created by script  
+└── README.md  
+```
 ---
 
 ## Preprocessing Script  
