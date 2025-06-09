@@ -56,12 +56,17 @@ flowchart LR
 `git clone https://github.com/your-username/real-time-fraud-detection.git`  
 `cd real-time-fraud-detection`  
 
-### 2. Install dependencies  
+### 2. Data Directory
+
+For detailed instructions on preparing the raw dataset, see the [data/README.md](data/README.md) file.
+
+
+### 3. Install dependencies  
 `python -m venv .venv`  
 `source .venv/bin/activate` or `.venv\Scripts\activate` on Windows   
 `pip install -r requirements.txt`  
 
-### 2. Start core services  
+### 4. Start core services  
 `docker compose up -d`  
 This spins up:  
 - zookeeper  
@@ -69,12 +74,12 @@ This spins up:
 - prometheus  
 - grafana  
 - fastapi (serving the /predict and /metrics endpoints)  
-### 3. Run the Kafka consumer  
+### 5. Run the Kafka consumer  
 `python -m src.inference.consumer`  
-### 4. Run the data simulator  
+### 6. Run the data simulator  
 `python -m src.data_simulator.data_simulator`  
 
-### 5. Open Grafana and Prometheus dashboards
+### 7. Open Grafana and Prometheus dashboards
 
 - Grafana: [http://localhost:3000](http://localhost:3000)
   - log in (admin / admin), click "Dashboards" → "New" → "Import", then upload grafana/dashboards/Fraud-Metrics.json file. 
