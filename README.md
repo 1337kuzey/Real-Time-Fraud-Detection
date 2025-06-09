@@ -97,4 +97,5 @@ Note: To use another model (e.g. LightGBM, CatBoost, XGBoost), set the MODEL_NAM
 - REST API auth layer (JWT / API Key)
 - Model versioning support
 ## License
-MIT — free to use and modify.
+Copyright (c) 2025 Hardy Fenam  
+Licensed under the MIT License
