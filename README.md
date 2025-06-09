@@ -19,13 +19,14 @@ This project simulates real-time credit card transactions and detects fraudulent
 ## Architecture Overview
 
 ```mermaid
+%%{init: {'theme': 'forest', 'themeVariables': { 'fontSize': '30px', 'fontFamily': 'sans-serif'}}}%%
 flowchart LR
-  Simulator["data_simulator.py<br>Simulated Transactions"]
-  Kafka["Kafka Broker"]
-  Consumer["consumer.py<br>Kafka Consumer"]
-  FastAPI["inference.py<br>(/predict API)<br>ML Inference"]
-  Prometheus["Prometheus<br>/metrics scraping"]
-  Grafana["Grafana Dashboards"]
+  Simulator["✉️ <br>data_simulator.py<br>Simulated Transactions"]
+  Kafka["📥 <br>Kafka Broker"]
+  Consumer["📝<br>consumer.py<br>Kafka Consumer"]
+  FastAPI["🧠<br>inference.py<br>(/predict)<br>ML Inference"]
+  Prometheus["🧮 <br>Prometheus<br>/metrics scraping"]
+  Grafana["📊 <br>Grafana Dashboards"]
 
   Simulator --> Kafka
   Kafka --> Consumer
