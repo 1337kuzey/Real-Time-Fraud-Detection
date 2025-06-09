@@ -82,6 +82,8 @@ This spins up:
 - FastAPI API: [http://localhost:8000](http://localhost:8000)
 - Metrics endpoint: [http://localhost:8000/metrics](http://localhost:8000/metrics)
 
+Note: To use another model (e.g. LightGBM, CatBoost, XGBoost), set the MODEL_NAME environment variable in docker-compose.yml
+
 ## 🧠 Future Enhancements  
 - Add Kafka message persistence
 - CI/CD with GitHub Actions
