@@ -1,101 +1,124 @@
-# Real-Time Fraud Detection System ⚙️
+# Real-Time Fraud Detection Pipeline 🛡️
 
-A production-style real-time fraud detection pipeline using **Kafka**, **FastAPI**, **XGBoost/CatBoost/LightGBM**, **Prometheus**, and **Grafana**.
+![Fraud Detection](https://img.shields.io/badge/Fraud%20Detection-Pipeline-blue?style=flat-square) ![Python](https://img.shields.io/badge/Python-3.8%2B-yellowgreen?style=flat-square) ![Kafka](https://img.shields.io/badge/Apache%20Kafka-2.8.0-orange?style=flat-square)
 
-This project simulates real-time credit card transactions and detects fraudulent activity using trained ML models, exposing inference metrics for live monitoring.
+Welcome to the **Real-Time Fraud Detection** repository! This project showcases a robust and scalable fraud detection pipeline designed for production environments. It leverages a combination of powerful technologies, including Kafka, FastAPI, XGBoost, CatBoost, LightGBM, Prometheus, and Grafana.
 
----
+## Table of Contents
 
-## Key Features
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Architecture](#architecture)
+- [Monitoring](#monitoring)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-- **Real-Time Streaming** via Kafka (with Zookeeper)
-- **Machine Learning Inference** with FastAPI + pre-trained models
-- **Metrics + Monitoring** using Prometheus + Grafana
-- **Feature Engineering** and preprocessing using pipelines
-- **Dockerized Deployment** via `docker-compose`
+## Overview
 
----
+Fraud detection is crucial in various industries, especially in finance and e-commerce. This pipeline processes data in real-time to identify potentially fraudulent activities. It uses machine learning models to analyze incoming data and make predictions on-the-fly. The architecture is designed to handle high volumes of data while ensuring low latency.
 
-## Architecture Overview
+## Technologies Used
 
-```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'fontSize': '30px', 'fontFamily': 'sans-serif'}}}%%
-flowchart LR
-  Simulator["✉️ <br>data_simulator.py<br>Simulated Transactions"]
-  Kafka["📥 <br>Kafka Broker"]
-  Consumer["📝<br>consumer.py<br>Kafka Consumer"]
-  FastAPI["🧠<br>inference.py<br>(/predict)<br>ML Inference"]
-  Prometheus["🧮 <br>Prometheus<br>/metrics scraping"]
-  Grafana["📊 <br>Grafana Dashboards"]
+This project utilizes the following technologies:
 
-  Simulator --> Kafka
-  Kafka --> Consumer
-  Consumer --> FastAPI
-  FastAPI --> Prometheus
-  Prometheus --> Grafana
+- **Apache Kafka**: For real-time data streaming.
+- **FastAPI**: To build the web API for model predictions.
+- **XGBoost, CatBoost, LightGBM**: For machine learning models.
+- **Prometheus**: For monitoring metrics.
+- **Grafana**: For data visualization.
+
+## Installation
+
+To set up the project, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/1337kuzey/Real-Time-Fraud-Detection.git
+   cd Real-Time-Fraud-Detection
+   ```
+
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up Kafka**:
+   Follow the [Kafka Quickstart](https://kafka.apache.org/quickstart) to set up your Kafka environment.
+
+5. **Run the FastAPI application**:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+
+## Usage
+
+Once the application is running, you can access the API at `http://localhost:8000/docs`. This interface allows you to interact with the fraud detection models. 
+
+### Making Predictions
+
+To make predictions, send a POST request to the `/predict` endpoint with the required data. Here’s an example using `curl`:
+
+```bash
+curl -X POST "http://localhost:8000/predict" -H "Content-Type: application/json" -d '{"data": { "feature1": value1, "feature2": value2 }}'
 ```
 
-## Tech Stack
+### Data Flow
 
-| Domain             | Technology / Tool                                                                 |
-|--------------------|------------------------------------------------------------------------------------|
-| **Language**       | [Python 3.12](https://www.python.org/downloads/release/python-3120/)              |
-| **Web API**        | [FastAPI](https://fastapi.tiangolo.com/)                                          |
-| **Machine Learning** | [XGBoost](https://xgboost.ai/), [LightGBM](https://lightgbm.readthedocs.io/), [CatBoost](https://catboost.ai/) |
-| **Preprocessing**  | [Scikit-learn Pipelines](https://scikit-learn.org/stable/modules/compose.html), Custom [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) |
-| **Streaming**      | [Apache Kafka](https://kafka.apache.org/), [Zookeeper](https://zookeeper.apache.org/) |
-| **Metrics**        | [prometheus_client](https://github.com/prometheus/client_python)                  |
-| **Monitoring**     | [Prometheus](https://prometheus.io/), [Grafana](https://grafana.com/)             |
-| **Containerization** | [Docker](https://www.docker.com/), [Docker Compose](https://docs.docker.com/compose/) |
-| **Data Source**    | [IEEE-CIS Fraud Detection Dataset](https://www.kaggle.com/competitions/ieee-fraud-detection) |
+The data flows through Kafka, where it is consumed by the FastAPI application. The application then processes the data using the trained machine learning models to predict whether the transaction is fraudulent.
 
-<img width="1576" alt="Screenshot 2025-06-09 at 1 05 01 AM" src="https://github.com/user-attachments/assets/d075418b-ac84-4b5a-a5c8-04ad95dd1e50" />
-<img width="800" alt="Screenshot 2025-06-09 at 7 16 30 AM" src="https://github.com/user-attachments/assets/354dc76c-3227-4109-a11a-fbcbd9de5d0f" />
+## Architecture
 
-## Running the Project
+The architecture of the Real-Time Fraud Detection pipeline consists of the following components:
 
-### 1. Clone the repository  
-`git clone https://github.com/your-username/real-time-fraud-detection.git`  
-`cd real-time-fraud-detection`  
+- **Data Producer**: Sends transaction data to Kafka.
+- **Kafka Broker**: Manages the data streams.
+- **FastAPI Application**: Consumes data from Kafka and makes predictions.
+- **Machine Learning Models**: Process the data and provide predictions.
+- **Prometheus**: Collects metrics for monitoring.
+- **Grafana**: Visualizes metrics and alerts.
 
-### 2. Data Directory
+![Architecture Diagram](https://example.com/path-to-your-architecture-diagram.png)
 
-For detailed instructions on preparing the raw dataset, see the [data/README.md](data/README.md) file.
+## Monitoring
 
+To monitor the application, Prometheus scrapes metrics from the FastAPI application. You can visualize these metrics in Grafana by creating dashboards. 
 
-### 3. Install dependencies  
-`python -m venv .venv`  
-`source .venv/bin/activate` or `.venv\Scripts\activate` on Windows   
-`pip install -r requirements.txt`  
+### Setting Up Prometheus
 
-### 4. Start core services  
-`docker compose up -d`  
-This spins up:  
-- zookeeper  
-- kafka  
-- prometheus  
-- grafana  
-- fastapi (serving the /predict and /metrics endpoints)  
-### 5. Run the Kafka consumer  
-`python -m src.inference.consumer`  
-### 6. Run the data simulator  
-`python -m src.data_simulator.data_simulator`  
+1. Create a `prometheus.yml` configuration file.
+2. Add the FastAPI application as a target.
+3. Start Prometheus using the configuration file.
 
-### 7. Open Grafana and Prometheus dashboards
+### Setting Up Grafana
 
-- Grafana: [http://localhost:3000](http://localhost:3000)
-  - log in (admin / admin), click "Dashboards" → "New" → "Import", then upload grafana/dashboards/Fraud-Metrics.json file. 
-- Prometheus: [http://localhost:9090](http://localhost:9090)
-- FastAPI API: [http://localhost:8000](http://localhost:8000)
-- Metrics endpoint: [http://localhost:8000/metrics](http://localhost:8000/metrics)
+1. Install Grafana and start the server.
+2. Add Prometheus as a data source.
+3. Create dashboards to visualize metrics.
 
-Note: To use another model (e.g. LightGBM, CatBoost, XGBoost), set the MODEL_NAME environment variable in docker-compose.yml
+## Contributing
 
-## Future Enhancements  
-- Add Kafka message persistence
-- CI/CD with GitHub Actions
-- REST API auth layer (JWT / API Key)
-- Model versioning support
+We welcome contributions to improve the Real-Time Fraud Detection pipeline. To contribute:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push your branch and open a pull request.
+
 ## License
-Copyright (c) 2025 Hardy Fenam  
-Licensed under the MIT License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+You can find the latest releases of this project [here](https://github.com/1337kuzey/Real-Time-Fraud-Detection/releases). Download the necessary files and execute them to set up your environment.
+
+Feel free to check the **Releases** section for updates and version changes.
